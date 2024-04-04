@@ -1,12 +1,18 @@
-// import 'phaser';
-// import GameState from './game/GameState';
+import 'phaser';
+import BootScene from './scenes/BootScene';
+import PreloadScene from './scenes/PreloadScene';
+import GameScene from './scenes/GameScene';
 
-// const config: Phaser.Types.Core.GameConfig = {
-//   type: Phaser.AUTO,
-//   width: 720,  // スマートフォンの縦向き解像度に合わせて設定
-//   height: 1280, // スマートフォンの縦向き解像度に合わせて設定
-//   scene: [GameState],
-// };
+// 画面のサイズを取得
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
 
-// // Phaserゲームのインスタンスを作成
-// const game = new Phaser.Game(config);
+const config: Phaser.Types.Core.GameConfig = {
+  type: Phaser.AUTO,
+  width: screenWidth, // 画面の幅に合わせて設定
+  height: screenHeight, // 画面の高さに合わせて設定
+  scene: [BootScene, PreloadScene, GameScene], // 必要なシーンを配列で指定
+};
+
+// Phaserゲームのインスタンスを作成
+const game = new Phaser.Game(config);
